@@ -2,9 +2,10 @@
 # Conditional build:
 # _with_cyberflex	- support Cyberflex cards (instead of Cryptoflex)
 #
+%define 	modulename pam_smartcard
 Summary:	RSA PAM Authentication using smartcards
 Summary(pl):	Uwierzytelnienie PAM RSA przy u¿yciu kart procesorowych
-Name:		pam-pam_smartcard
+Name:		pam-%{modulename}
 Version:	0.4.0
 Release:	1
 Epoch:		0
@@ -16,6 +17,7 @@ URL:		http://www.musclecard.com/apps.html
 BuildRequires:	gmp-devel
 BuildRequires:	pam-devel
 BuildRequires:	pcsc-lite-devel
+Obsoletes:	%{modulename}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
