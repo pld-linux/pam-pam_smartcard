@@ -17,7 +17,7 @@ URL:		http://www.musclecard.com/apps.html
 BuildRequires:	gmp-devel
 BuildRequires:	pam-devel
 BuildRequires:	pcsc-lite-devel
-Obsoletes:	%{modulename}
+Obsoletes:	pam_smartcard
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
