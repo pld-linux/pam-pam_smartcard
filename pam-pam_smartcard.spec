@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _with_cyberflex	- support Cyberflex cards (instead of Cryptoflex)
+%bcond_with	cyberflex	# support Cyberflex cards (instead of Cryptoflex)
 #
 %define 	modulename pam_smartcard
 Summary:	RSA PAM Authentication using smartcards
@@ -25,28 +25,28 @@ This PAM module performs a challenge response with the card to perform
 authentication. To begin you must have a Schlumberger Cyberflex Access
 or Schlumberger Cryptoflex card and an appropriate reader.
 
-This module has been compiled for %{?_with_cyberflex:Cyberflex}%{!?_with_cyberflex:Cryptoflex} cards.
+This module has been compiled for %{?with_cyberflex:Cyberflex}%{!?with_cyberflex:Cryptoflex} cards.
 
 %description -l pl
 Ten modu³ PAM komunikuje siê z kart± procesorow± w celu
 uwierzytelnienia. Wymaga karty Schlumberger Cyberflex Access lub
 Schlumberger Cryptoflex oraz odpowiedniego czytnika.
 
-Ten modu³ zosta³ skompilowany dla kart %{?_with_cyberflex:Cyberflex}%{!?_with_cyberflex:Cryptoflex}.
+Ten modu³ zosta³ skompilowany dla kart %{?with_cyberflex:Cyberflex}%{!?with_cyberflex:Cryptoflex}.
 
 %prep
 %setup -q -n smarttools-rsa-%{version}
 
 %build
-%{__make} %{?_with_cyberflex:cyberflex}%{!?_with_cyberflex:cryptoflex} \
+%{__make} %{?with_cyberflex:cyberflex}%{!?with_cyberflex:cryptoflex} \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags} -fpic -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{/lib/security,%{_bindir}}
+install -d $RPM_BUILD_ROOT{/%{_lib}/security,%{_bindir}}
 
-install pam_smartcard.so $RPM_BUILD_ROOT/lib/security
+install pam_smartcard.so $RPM_BUILD_ROOT/%{_lib}/security
 install cschallenge cscrypt csdecrypt csgenkey $RPM_BUILD_ROOT%{_bindir}
 
 %clean
@@ -56,4 +56,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ERRATA LICENSE README
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) /lib/security/pam_smartcard.so
+%attr(755,root,root) /%{_lib}/security/pam_smartcard.so
