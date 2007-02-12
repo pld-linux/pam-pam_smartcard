@@ -4,7 +4,7 @@
 #
 %define 	modulename pam_smartcard
 Summary:	RSA PAM Authentication using smartcards
-Summary(pl):	Uwierzytelnienie PAM RSA przy u¿yciu kart procesorowych
+Summary(pl.UTF-8):   Uwierzytelnienie PAM RSA przy uÅ¼yciu kart procesorowych
 Name:		pam-%{modulename}
 Version:	0.4.0
 Release:	1
@@ -27,12 +27,12 @@ or Schlumberger Cryptoflex card and an appropriate reader.
 
 This module has been compiled for %{?with_cyberflex:Cyberflex}%{!?with_cyberflex:Cryptoflex} cards.
 
-%description -l pl
-Ten modu³ PAM komunikuje siê z kart± procesorow± w celu
+%description -l pl.UTF-8
+Ten moduÅ‚ PAM komunikuje siÄ™ z kartÄ… procesorowÄ… w celu
 uwierzytelnienia. Wymaga karty Schlumberger Cyberflex Access lub
 Schlumberger Cryptoflex oraz odpowiedniego czytnika.
 
-Ten modu³ zosta³ skompilowany dla kart %{?with_cyberflex:Cyberflex}%{!?with_cyberflex:Cryptoflex}.
+Ten moduÅ‚ zostaÅ‚ skompilowany dla kart %{?with_cyberflex:Cyberflex}%{!?with_cyberflex:Cryptoflex}.
 
 %prep
 %setup -q -n smarttools-rsa-%{version}
