@@ -4,7 +4,7 @@
 #
 %define 	modulename pam_smartcard
 Summary:	RSA PAM Authentication using smartcards
-Summary(pl.UTF-8):   Uwierzytelnienie PAM RSA przy użyciu kart procesorowych
+Summary(pl.UTF-8):	Uwierzytelnienie PAM RSA przy użyciu kart procesorowych
 Name:		pam-%{modulename}
 Version:	0.4.0
 Release:	1
