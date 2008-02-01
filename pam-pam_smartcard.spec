@@ -40,7 +40,7 @@ Ten moduł został skompilowany dla kart %{?with_cyberflex:Cyberflex}%{!?with_cy
 %build
 %{__make} %{?with_cyberflex:cyberflex}%{!?with_cyberflex:cryptoflex} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -fpic -Wall"
+	CFLAGS="%{rpmcflags} -fpic -Wall -I/usr/include/PCSC"
 
 %install
 rm -rf $RPM_BUILD_ROOT
